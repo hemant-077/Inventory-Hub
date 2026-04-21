@@ -1,3 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-base: #050911;
+  --bg-elevated: #0d1524;
+  --bg-panel: #121c2f;
+  --surface: rgba(16, 26, 43, 0.9);
+  --surface-hover: rgba(22, 35, 57, 0.95);
+  --border-soft: rgba(148, 163, 184, 0.22);
+  --border-strong: rgba(148, 163, 184, 0.35);
+  --text-primary: #e2e8f0;
+  --text-muted: #93a7c7;
+  --brand: #38bdf8;
+  --brand-strong: #0284c7;
+  --success: #22c55e;
+  --danger: #ef4444;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at 10% 12%, rgba(56, 189, 248, 0.18), transparent 48%),
+    radial-gradient(circle at 80% 0%, rgba(30, 64, 175, 0.15), transparent 35%),
+    linear-gradient(160deg, #04070f 0%, #080f1d 45%, #0a1424 100%);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Sora", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.app-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-glow--top {
+  top: -220px;
+  right: -180px;
+  background: rgba(14, 165, 233, 0.18);
+}
+
+.app-glow--bottom {
+  bottom: -260px;
+  left: -180px;
+  background: rgba(59, 130, 246, 0.14);
+}
+
+.home-shortcut {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 30;
+  border: 1px solid var(--border-soft);
+  background: rgba(8, 12, 24, 0.82);
+  color: var(--text-primary);
+  padding: 0.55rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.home-shortcut:hover {
+  border-color: var(--border-strong);
+  background: rgba(17, 27, 44, 0.96);
+  transform: translateY(-1px);
+}
+
+.surface-card {
+  border-radius: 1rem;
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+  box-shadow: 0 24px 60px -40px rgba(8, 20, 38, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  letter-spacing: 0.01em;
+}
+
+.section-copy {
+  margin: 0.35rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  padding: 0.72rem 1.15rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary {
+  color: #e0f2fe;
+  border-color: rgba(14, 165, 233, 0.42);
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.92), rgba(3, 105, 161, 0.95));
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  border-color: rgba(125, 211, 252, 0.55);
+}
+
+.btn-secondary {
+  color: var(--text-primary);
+  border-color: var(--border-soft);
+  background: rgba(15, 23, 40, 0.92);
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  background: rgba(23, 35, 57, 0.95);
+}
+
+.btn-danger {
+  color: #fee2e2;
+  border-color: rgba(239, 68, 68, 0.34);
+  background: linear-gradient(135deg, rgba(153, 27, 27, 0.92), rgba(127, 29, 29, 0.95));
+}
+
+.btn-danger:hover {
+  border-color: rgba(252, 165, 165, 0.45);
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 0.85rem;
+  border: 1px solid var(--border-soft);
+  background: rgba(10, 17, 30, 0.95);
+  color: var(--text-primary);
+  padding: 0.8rem 0.95rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field-input::placeholder {
+  color: rgba(148, 163, 184, 0.7);
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
